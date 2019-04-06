@@ -7,7 +7,7 @@ Quick Resize is a go based image resizer focused on a fast workflow. (Win)
 1. Download the latest release [here](https://github.com/juliscrazy/Quick-Resize/releases)
 2. Run setup.exe as administrator
 3. Just rightclick on any supported file in the windows explorer and select resize
-![context menu](https://image.prntscr.com/image/ltkxyPziR_6ROt381dirHw.png)
+![context menu](https://i.imgur.com/MxrLbjd.png)
 4. Resize your image
 5. Done
 
