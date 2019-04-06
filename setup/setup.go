@@ -18,8 +18,8 @@ func main() {
 
 	execOldLocation := "src/resizer.exe"
 	execNewLocation := "C:/Program Files/Quick Resize/resizer.exe"
-	iconOldLocation := "src/resizer.exe"
-	iconNewLocation := "C:/Program Files/Quick Resize/resizer.exe"
+	iconOldLocation := "src/icon.ico"
+	iconNewLocation := "C:/Program Files/Quick Resize/res/icon.ico"
 	err := os.Rename(execOldLocation, execNewLocation)
 	if err != nil {
 		log.Fatal(err)
