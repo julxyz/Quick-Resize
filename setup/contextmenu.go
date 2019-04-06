@@ -1,5 +1,5 @@
 package main
 
 func editregistry() {
-	// adds associations to Quick-Resize.exe to your registry
+	// adds associations to resize.exe to your registry
 }
