@@ -20,6 +20,6 @@ func main() {
 	}
 
 	if strings.HasSuffix(os.Args[2], ".jpg") {
-		resizepjpg(file)
+		resizejpg(file)
 	}
 }
