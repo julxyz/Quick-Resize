@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"os/exec"
 )
 
 func main() {
@@ -18,17 +19,12 @@ func main() {
 
 	execOldLocation := "src/resizer.exe"
 	execNewLocation := "C:/Program Files/Quick Resize/resizer.exe"
-	iconOldLocation := "src/icon.ico"
-	iconNewLocation := "C:/Program Files/Quick Resize/res/icon.ico"
 	err := os.Rename(execOldLocation, execNewLocation)
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = os.Rename(iconOldLocation, iconNewLocation)
-	if err != nil {
-		log.Fatal(err)
-	}
 
-	// call reg editor
-	// editregistry()
+	cmnd := exec.Command("regedit.exe", "/S menu.reg")
+	cmnd.Start()
+	log.Println("log")
 }
