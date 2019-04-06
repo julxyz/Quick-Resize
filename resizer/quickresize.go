@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"image/png"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/nfnt/resize"
 )
@@ -32,7 +34,9 @@ func main() {
 	// and preserve aspect ratio
 	m := resize.Resize(100, 0, img, resize.Lanczos3)
 
-	out, err := os.Create("test_resized.png") // change to var
+	newFileName := fmt.Sprintf("%s resized.png", os.Args[2])
+	newFileName = strings.Replace(newFileName, ".png", "", 1)
+	out, err := os.Create(newFileName) // change to var
 	if err != nil {
 		log.Fatal(err)
 	}
