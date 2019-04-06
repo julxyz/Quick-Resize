@@ -28,6 +28,5 @@ start "" "%~dp0\Setup.exe"
 
 :--------------------------------------
  rem  set __COMPAT_LAYER=RunAsInvoker  
- REGEDIT.EXE  /S  "%~dp0\png.reg"
- REGEDIT.EXE  /S  "%~dp0\jpg.reg"
+ REGEDIT.EXE  /S  "%~dp0\menu.reg"
  pause
