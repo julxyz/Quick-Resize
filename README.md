@@ -2,6 +2,8 @@
 
 Quick Resize is a go based image resizer focused on a fast workflow. (Win)
 
+--------------------------
+
 ### How to use Quick Resize
 
 1. Download the latest release [here](https://github.com/juliscrazy/Quick-Resize/releases)
@@ -11,6 +13,8 @@ Quick Resize is a go based image resizer focused on a fast workflow. (Win)
 ![context menu](https://i.imgur.com/MxrLbjd.png)
 5. Resize your image
 6. Done
+
+--------------------------
 
 ### Project
 
