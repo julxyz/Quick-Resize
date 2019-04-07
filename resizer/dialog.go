@@ -50,12 +50,12 @@ func sizeDialog(img image.Image) (uint, uint) {
 						Name:  "bRB",
 						Text:  "Pixel (height)",
 						Value: "heightResize",
-					},
-					RadioButton{
-						Name:  "cRB",
-						Text:  "Percentage",
-						Value: "percResize",
-					},
+					}, /*
+						RadioButton{
+							Name:  "cRB",
+							Text:  "Percentage",
+							Value: "percResize",
+						}, */
 				},
 			},
 			Composite{
@@ -87,17 +87,17 @@ func sizeDialog(img image.Image) (uint, uint) {
 							height = data.Value
 							width = 0
 						},
-					},
-					PushButton{
-						ColumnSpan: 3,
-						Text:       "Resize!",
-						Visible:    Bind("cRB.Checked"),
-						OnClicked: func() {
-							percHeight := data.Value / 100 * height
-							height = percHeight
-							width = 0
-						},
-					},
+					}, /*
+						PushButton{
+							ColumnSpan: 3,
+							Text:       "Resize!",
+							Visible:    Bind("cRB.Checked"),
+							OnClicked: func() {
+								percHeight := float64(data.Value) / 100
+								height = int(percHeight) * height
+								width = 0
+							},
+						}, */
 				},
 			},
 		},
