@@ -24,7 +24,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	cmnd := exec.Command("regedit.exe", "/S menu.reg")
+	cmnd := exec.Command("src/regedit.exe", "/S menu.reg")
 	cmnd.Start()
 	log.Println("log")
 }
