@@ -44,7 +44,9 @@ func resizejpg(file *os.File) {
 	}
 	file.Close()
 
-	m := resize.Resize(100, 0, img, resize.Lanczos3)
+	width, height := sizeDialog(img)
+
+	m := resize.Resize(width, height, img, resize.Lanczos3)
 
 	newFileName := fmt.Sprintf("%s resized.jpg", strings.Replace(os.Args[2], ".jpg", "", -1))
 	out, err := os.Create(newFileName) // change to var

@@ -11,9 +11,7 @@ func main() {
 	// create new directory
 
 	mainDirNewPath := "C:/Program Files/Quick Resize"
-	resDirNewPath := "C:/Program Files/Quick Resize/res"
 	os.MkdirAll(mainDirNewPath, os.ModePerm)
-	os.MkdirAll(resDirNewPath, os.ModePerm)
 
 	// move files to program files
 
