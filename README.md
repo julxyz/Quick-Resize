@@ -24,5 +24,5 @@ If you want any filetype to be added issue a feature request [here](https://gith
 
 Currently supported filetypes: 
 
-- png
-- jpg
+- .png
+- .jpg
