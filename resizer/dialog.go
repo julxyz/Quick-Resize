@@ -13,6 +13,10 @@ type Foo struct {
 	Baz int
 }
 
+type MyMainWindow struct {
+	*walk.MainWindow
+}
+
 func sizeDialog(img image.Image) (uint, uint) {
 
 	width := img.Bounds().Max.X - 1
@@ -20,15 +24,18 @@ func sizeDialog(img image.Image) (uint, uint) {
 
 	// dialog window
 
-	foo := &Foo{"b", 0}
+	mw := new(MyMainWindow)
+
+	foo := &Foo{"widthResize", 0}
 
 	var valueEdit *walk.NumberEdit
-	data := struct{ Value int }{100}
+	data := struct{ Value int }{width}
 
 	MainWindow{
-		Title:   "Quick Resize",
-		MinSize: Size{300, 120},
-		Layout:  VBox{},
+		AssignTo: &mw.MainWindow,
+		Title:    "Quick Resize",
+		MinSize:  Size{300, 120},
+		Layout:   VBox{},
 		DataBinder: DataBinder{
 			DataSource: foo,
 			AutoSubmit: true,
@@ -77,6 +84,7 @@ func sizeDialog(img image.Image) (uint, uint) {
 						OnClicked: func() {
 							height = 0
 							width = data.Value
+							mw.Close()
 						},
 					},
 					PushButton{
@@ -86,8 +94,18 @@ func sizeDialog(img image.Image) (uint, uint) {
 						OnClicked: func() {
 							height = data.Value
 							width = 0
+							mw.Close()
 						},
 					}, /*
+						PushButton{
+							ColumnSpan: 3,
+							Text:       "Resize as .png",
+							OnClicked: func() {
+								height = data.Value
+								width = 0
+								mw.Close()
+							},
+						}, */ /*
 						PushButton{
 							ColumnSpan: 3,
 							Text:       "Resize!",
