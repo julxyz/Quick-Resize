@@ -22,7 +22,7 @@ func resizepng(file *os.File) {
 
 	width, height := sizeDialog(img)
 
-	m := resize.Resize(width, height, img, resize.Lanczos3)
+	m := resize.Resize(width, height, img, resize.NearestNeighbor)
 
 	newFileName := fmt.Sprintf("%s resized.png", strings.Replace(os.Args[2], ".png", "", -1))
 	out, err := os.Create(newFileName) // change to var
@@ -46,7 +46,7 @@ func resizejpg(file *os.File) {
 
 	width, height := sizeDialog(img)
 
-	m := resize.Resize(width, height, img, resize.Lanczos3)
+	m := resize.Resize(width, height, img, resize.NearestNeighbor)
 
 	newFileName := fmt.Sprintf("%s resized.jpg", strings.Replace(os.Args[2], ".jpg", "", -1))
 	out, err := os.Create(newFileName) // change to var

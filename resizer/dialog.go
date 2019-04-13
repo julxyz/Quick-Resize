@@ -24,6 +24,8 @@ func sizeDialog(img image.Image) (uint, uint) {
 
 	// dialog window
 
+	var appIcon, _ = walk.NewIconFromResourceId(3)
+
 	mw := new(MyMainWindow)
 
 	foo := &Foo{"widthResize", 0}
@@ -34,6 +36,7 @@ func sizeDialog(img image.Image) (uint, uint) {
 	MainWindow{
 		AssignTo: &mw.MainWindow,
 		Title:    "Quick Resize",
+		Icon:     appIcon,
 		MinSize:  Size{300, 120},
 		Layout:   VBox{},
 		DataBinder: DataBinder{
