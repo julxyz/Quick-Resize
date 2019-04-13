@@ -17,10 +17,12 @@ type MyMainWindow struct {
 	*walk.MainWindow
 }
 
-func sizeDialog(img image.Image) (uint, uint) {
+func sizeDialog(img image.Image, filetype string) (uint, uint, bool) {
 
 	width := img.Bounds().Max.X - 1
 	height := img.Bounds().Max.Y - 1
+
+	var savepng bool
 
 	// dialog window
 
@@ -80,35 +82,74 @@ func sizeDialog(img image.Image) (uint, uint) {
 							data.Value = int(valueEdit.Value())
 						},
 					},
+					CheckBox{
+						Name:    "saveaspng",
+						Text:    "Save as .png",
+						Checked: true,
+						Visible: func() bool {
+							if filetype == "jpg" {
+								return true
+							} else {
+								return false
+							}
+						},
+					},
 					PushButton{
 						ColumnSpan: 3,
 						Text:       "Resize!",
-						Visible:    Bind("aRB.Checked"),
+						Visible:    Bind("aRB.Checked && saveaspng.Checked"),
 						OnClicked: func() {
 							height = 0
 							width = data.Value
+							var savepng = true
+							if savepng {
+							} else {
+							}
 							mw.Close()
 						},
 					},
 					PushButton{
 						ColumnSpan: 3,
 						Text:       "Resize!",
-						Visible:    Bind("bRB.Checked"),
+						Visible:    Bind("bRB.Checked && saveaspng.Checked"),
 						OnClicked: func() {
 							height = data.Value
 							width = 0
+							var savepng = true
+							if savepng {
+							} else {
+							}
+							mw.Close()
+						},
+					},
+					PushButton{
+						ColumnSpan: 3,
+						Text:       "Resize!",
+						Visible:    Bind("aRB.Checked && !saveaspng.Checked"),
+						OnClicked: func() {
+							height = 0
+							width = data.Value
+							var savepng = false
+							if savepng {
+							} else {
+							}
+							mw.Close()
+						},
+					},
+					PushButton{
+						ColumnSpan: 3,
+						Text:       "Resize!",
+						Visible:    Bind("bRB.Checked && !saveaspng.Checked"),
+						OnClicked: func() {
+							height = data.Value
+							width = 0
+							var savepng = false
+							if savepng {
+							} else {
+							}
 							mw.Close()
 						},
 					}, /*
-						PushButton{
-							ColumnSpan: 3,
-							Text:       "Resize as .png",
-							OnClicked: func() {
-								height = data.Value
-								width = 0
-								mw.Close()
-							},
-						}, */ /*
 						PushButton{
 							ColumnSpan: 3,
 							Text:       "Resize!",
@@ -126,6 +167,6 @@ func sizeDialog(img image.Image) (uint, uint) {
 
 	// return values
 
-	return uint(width), uint(height)
+	return uint(width), uint(height), savepng
 
 }
