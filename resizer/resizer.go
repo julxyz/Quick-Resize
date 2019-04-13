@@ -20,11 +20,7 @@ func resizepng(file *os.File) {
 	}
 	file.Close()
 
-	width, height, saveaspng := sizeDialog(img, "png")
-
-	if saveaspng {
-	} else {
-	}
+	width, height := sizeDialog(img)
 
 	m := resize.Resize(width, height, img, resize.NearestNeighbor)
 
@@ -48,30 +44,17 @@ func resizejpg(file *os.File) {
 	}
 	file.Close()
 
-	width, height, saveaspng := sizeDialog(img, "jpg")
+	width, height := sizeDialog(img)
 
 	m := resize.Resize(width, height, img, resize.NearestNeighbor)
 
-	if saveaspng {
-		newFileName := fmt.Sprintf("%s resized.png", strings.Replace(os.Args[2], ".jpg", "", -1))
-		out, err := os.Create(newFileName) // change to var
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer out.Close()
-
-		// write new image to file
-		png.Encode(out, m)
-
-	} else {
-		newFileName := fmt.Sprintf("%s resized.jpg", strings.Replace(os.Args[2], ".jpg", "", -1))
-		out, err := os.Create(newFileName) // change to var
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer out.Close()
-
-		// write new image to file
-		jpeg.Encode(out, m, nil)
+	newFileName := fmt.Sprintf("%s resized.jpg", strings.Replace(os.Args[2], ".jpg", "", -1))
+	out, err := os.Create(newFileName) // change to var
+	if err != nil {
+		log.Fatal(err)
 	}
+	defer out.Close()
+
+	// write new image to file
+	jpeg.Encode(out, m, nil)
 }
