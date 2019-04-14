@@ -18,7 +18,7 @@ Quick Resize is a go based image resizer focused on a fast workflow. (Win)
 
 ### Project
 
-See the progress [here](https://github.com/juliscrazy/Quick-Resize/projects/1)
+See the develpoment progress [here](https://github.com/juliscrazy/Quick-Resize/projects/1)
 
 If you want any filetype to be added issue a feature request [here](https://github.com/juliscrazy/Quick-Resize/issues/new/choose)
 
