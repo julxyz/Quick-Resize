@@ -102,15 +102,6 @@ func sizeDialog(img image.Image) (uint, uint) {
 					}, /*
 						PushButton{
 							ColumnSpan: 3,
-							Text:       "Resize as .png",
-							OnClicked: func() {
-								height = data.Value
-								width = 0
-								mw.Close()
-							},
-						}, */ /*
-						PushButton{
-							ColumnSpan: 3,
 							Text:       "Resize!",
 							Visible:    Bind("cRB.Checked"),
 							OnClicked: func() {
