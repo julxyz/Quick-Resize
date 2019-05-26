@@ -11,12 +11,21 @@ import (
 	"github.com/nfnt/resize"
 )
 
-func resizepng(file *os.File) {
+func resizeimg(file *os.File, filetype string) {
 
 	// decode png into image.Image
-	img, err := png.Decode(file)
-	if err != nil {
-		log.Fatal(err)
+	if filetype == "png" {
+		img, err := png.Decode(file)
+		if err != nil {
+			log.Fatal(err)
+		}
+	} else if filetype == "jpg" {
+		img, err := jpeg.Decode(file)
+		if err != nil {
+			log.Fatal(err)
+		}
+	} else {
+		img := "None"
 	}
 	file.Close()
 

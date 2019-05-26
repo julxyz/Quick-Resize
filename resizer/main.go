@@ -15,11 +15,15 @@ func main() {
 
 	// filetype filter
 
-	if strings.HasSuffix(os.Args[2], ".png") {
-		resizepng(file)
+	if strings.HasSuffix(strings.ToLower(os.Args[2]), ".png") {
+		resizeimg(file, "png")
 	}
 
-	if strings.HasSuffix(os.Args[2], ".jpg") {
-		resizejpg(file)
+	if strings.HasSuffix(strings.ToLower(os.Args[2]), ".jpg") {
+		resizeimg(file, "jpg")
+	}
+
+	if strings.HasSuffix(strings.ToLower(os.Args[2]), ".jpeg") {
+		resizeimg(file, "jpg")
 	}
 }
